@@ -7,17 +7,34 @@ static int spacew = 20;
 
 static int menu_bar_xpos = 762;
 static int text_xpos = 820;
+
+static int speed = 1;
+
+
+Button product_release = new Button(menu_bar_xpos + 5, 300, 85, 30, 200, 130, 60, Button.GROWING);
+Button speeddown = new Button(menu_bar_xpos + 5, 400, 25, 25, 0, 180, 180, Button.STATIC);
+Button speedup = new Button(speeddown.x + 60, 400, 25, 25, 0, 180, 180, Button.STATIC);
  
 void setup() 
 {
   size(860, 600);
   background(255);
+  frameRate(50);
+  
+  product_release.set_growth_rate( 100.0 );
 }
  
 void draw() 
 {  
   display_field();
   display_text();
+  product_release.draw();
+  speeddown.draw();
+  speedup.draw();
+  
+  println(get(mouseX, mouseY) == color(200));
+  
+  
   //// assume  cursor is not over the item
   //fill(153);
  
@@ -64,11 +81,10 @@ public void display_text() {
   //sample
   fill(200, 255, 250);
   rect(762, 0, screenw - 760, screenl);
-  noFill();
   
   fill(0);
-  
   textSize(16);
+  
   text( 500, text_xpos, 48);
   
   //money
