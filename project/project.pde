@@ -10,6 +10,7 @@ static int text_xpos = 820;
 
 static int speed = 1;
 
+static int block_color = 200;
 
 Button product_release = new Button(menu_bar_xpos + 5, 300, 85, 30, 200, 130, 60, Button.GROWING);
 Button speeddown = new Button(menu_bar_xpos + 5, 400, 25, 25, 0, 180, 180, Button.STATIC);
@@ -32,7 +33,12 @@ void draw()
   speeddown.draw();
   speedup.draw();
   
-  println(get(mouseX, mouseY) == color(200));
+  println(get(mouseX, mouseY) == color(block_color));
+  
+  if (get(mouseX, mouseY) == color(block_color)) {
+    
+  
+  }
   
   
   //// assume  cursor is not over the item
@@ -70,7 +76,7 @@ public void display_field() {
   
   for( int x = 10; x < menu_bar_xpos - 10; x += (boxw + spacew) ) { //row
     for( int y = 0; y < screenl; y += (boxl + spacel) ) { //col
-      fill(200);
+      fill(block_color);
       rect(x, y, boxw, boxl);
     }
   }
