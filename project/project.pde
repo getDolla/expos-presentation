@@ -13,15 +13,15 @@ static int speed = 1;
 static int block_color = 200;
 
 //Block Dimens
-int boxw = (menu_bar_xpos - (2 * spacew) - 20)/3;
-int boxl = (screenl - (2 * spacel))/3;
+static int boxw = (menu_bar_xpos - (2 * spacew) - 20)/3;
+static int boxl = (screenl - (2 * spacel))/3;
 
 //Block Grid Dimens
-int grid_border = 3;
-int gridw = (boxw - 4 * grid_border)/3;
-int gridl = (boxl - 4 * grid_border)/3;
+static int grid_border = 3;
+static int gridw = (boxw - 4 * grid_border)/3;
+static int gridl = (boxl - 4 * grid_border)/3;
 
-Tiles[] grid = new Tiles[81];
+static Tiles[] grid = new Tiles[81];
 
 //User Buttons
 Button product_release = new Button(menu_bar_xpos + 5, 300, 85, 30, 200, 130, 60, Button.GROWING);
@@ -59,6 +59,14 @@ void draw()
     }
   }
   
+  println( Character.toString((char) 98) );
+  
+}
+
+void mouseClicked() {
+  if ( product_release.is_under(mouseX, mouseY) ) {
+    product_release.change_state();
+  }
 }
 
 public void set_up_field() {

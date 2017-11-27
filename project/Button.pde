@@ -34,10 +34,20 @@ class Button {
  }
  
  float set_growth_rate( float var ) {
-   growth_rate = 0.4 * (log(var/140.0 + 1));
+   growth_rate = 0.4 * (log(var/140.0 + 1)) * project.speed;
    //println(growth_rate);
    return growth_rate;
  }
+ 
+ boolean is_under(int X, int Y) {
+    return (X >= x && X <= x+w && Y >= y && Y < y+l);
+  }
+  
+  void change_state() {
+    if ( curr_state == STATIC ) {
+       curr_state = GROWING;
+    }
+  }
   
  void draw() {
    
