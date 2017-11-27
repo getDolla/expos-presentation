@@ -10,7 +10,10 @@ class Building {
     cmp = new Company( n, money, inv, sale );
   }
   
-  void show_stats() {
+  void show_stats(int x, int y) {
+    fill(0);
+    textSize(14);
+    text( 500, x, y );
   }
 
 }

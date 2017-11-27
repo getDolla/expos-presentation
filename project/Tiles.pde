@@ -49,6 +49,7 @@ class Tiles {
     
     else {
       image(store.img, x, y, w, l);
+      store.show_stats(x, y);
     }
     
   }

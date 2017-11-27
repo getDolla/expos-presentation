@@ -53,6 +53,7 @@ void draw()
     for( int i = 0; i < grid.length; i++ ) {
       if (grid[i].is_under( mouseX, mouseY )) {
         grid[i].draw();
+
       }
       else {
         grid[i].clear(block_color);
