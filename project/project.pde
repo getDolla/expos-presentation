@@ -22,6 +22,7 @@ static int gridw = (boxw - 4 * grid_border)/3;
 static int gridl = (boxl - 4 * grid_border)/3;
 
 static Tiles[] grid = new Tiles[81];
+static Company[] companies = new Company[81];
 
 //User Buttons
 Button product_release = new Button(menu_bar_xpos + 5, 300, 85, 30, 200, 130, 60, Button.GROWING);
@@ -59,7 +60,6 @@ void draw()
     }
   }
   
-  println( Character.toString((char) 98) );
   
 }
 
@@ -73,6 +73,10 @@ public void set_up_field() {
   
   int ctr = 0;
   
+  for( int i = 0; i < grid.length - 1; i++ ) {
+    companies[i] = new Company( Integer.toString(i + 1), 173, 362, 497 );
+  }
+  
   for( int x = 10; x < menu_bar_xpos - 10; x += (boxw + spacew) ) { //row
     for( int y = 0; y < screenl; y += (boxl + spacel) ) { //col
       fill(block_color);
@@ -81,7 +85,7 @@ public void set_up_field() {
       for( int a = x + grid_border; a < x + boxw - grid_border; a += (gridw + grid_border) ) {
         for( int b = y + grid_border; b < y + boxl - grid_border; b += (gridl + grid_border) ) {
           grid[ctr] = new Tiles( a, b, gridw, gridl );
-          //grid[ctr].draw();
+          grid[ctr].set_store( new Building( companies[ctr] ) );
           ctr++;
         }
       }
