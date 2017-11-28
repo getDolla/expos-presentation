@@ -10,10 +10,17 @@ class Building {
     cmp = new Company( n, money, inv, sale );
   }
   
-  void show_stats(int x, int y) {
+  void show_stats(int x, int y, int w, int l) {
+    int start = millis();
     fill(0);
     textSize(14);
-    text( 500, x, y );
+    
+    text( 500, int(x + w/4), int(y + l/4) );
+    
+    //if( millis() - start > project.interval ) {
+    //  text( "", x, y );
+    //}
+    
   }
 
 }

@@ -8,7 +8,9 @@ static int spacel = 24;
 static int menu_bar_xpos = 762;
 static int text_xpos = 820;
 
+//time variables
 static int speed = 1;
+static int interval = 2000; //2 secs
 
 static int block_color = 200;
 
