@@ -11,11 +11,11 @@ class Building {
   }
   
   void show_stats(int x, int y, int w, int l) {
-    int start = millis();
+    //int start = millis();
     fill(0);
-    textSize(14);
+    textSize(12);
     
-    text( 500, int(x + w/4), int(y + l/4) );
+    text( "Company 1", int(x + w/10), int(y + l/2) );
     
     //if( millis() - start > project.interval ) {
     //  text( "", x, y );
